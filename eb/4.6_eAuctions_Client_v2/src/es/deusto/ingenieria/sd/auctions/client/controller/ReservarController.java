@@ -16,22 +16,17 @@ public class ReservarController {
 
 	public List<VueloDTO> busquedaWeb(String origen, String destino, Date fechaSalida, Date fechaLlegada, int nPersonas) {
 		try {
-			/*
-			Como funciona lo de service locator? Habrá que devolver según los parámetros de búsqueda
-			*/
-			return this.serviceLocator.getService().getCategories();
+			return this.serviceLocator.getService().getVuelos();
 		} catch (RemoteException e) {
 			System.err.println("# Error getting all categories: " + e);
 			return null;
 		}
 	}
 
-	public void reserva(String nVuelo, Date fechaSalida, int nPersonas) {
+	public void reserva(Cliente cliente, String nReserva, Vuelo vuelo, int nPersonas) {
 		try {
-			/*
-			Más de lo mismo
-			*/
-			return this.serviceLocator.getService().getArticles(category);
+			
+			return this.serviceLocator.getService().reserva(cliente, nReserva, vuelo, nPersonas);
 		} catch (RemoteException e) {
 			System.err.println("# Error getting articles of a category: " + e);
 			return null;

@@ -44,10 +44,10 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		return BusquedaService.getInstance().getVuelos();
 	}
 
-	public boolean reserva(Cliente cliente, String idReserva) {
+	public boolean reserva(Cliente cliente, String idReserva, Vuelo vuelo, int nPersonas) {
 		if (state != null) {
 			System.out.println(" * RemoteFaçade reserva  : " + idReserva);
-			return ReservaService.getInstance().reserva(cliente, idReserva);
+			return ReservaService.getInstance().reserva(cliente, idReserva, vuelo, nPersonas);
 		} else {
 			return false;
 		}

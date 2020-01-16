@@ -21,10 +21,12 @@ public class ReservaService {
 		return instance;
 	}
 
-	public boolean reserva(Cliente cliente, String idReserva) {
+	public boolean reserva(Cliente cliente, String idReserva, Vuelo vuelo, int nPersonas) {
 
 		Reserva newReserva = new Reserva();		
-		newReserva.setIdReserva();
+		newReserva.setIdReserva(idReserva);
+		newReserva.setnPersonas(nPersonas);
+		newReserva.setVuelo(vuelo);
 		cliente.addReserva(idReserva);
 
 		DBManager.getInstance().storeObjectInDB(newReserva);

@@ -28,7 +28,7 @@ public class ReservaWindow {
 		*/
 	}
 
-	public void reserva() { 
+	public void reserva(Cliente cliente, String nReserva, Vuelo vuelo, int nPersonas) { 
 		//Hacer
 		/*String category = "iPad";
 		
@@ -39,5 +39,7 @@ public class ReservaWindow {
 		for (ArticleDTO article : articles) {
 			System.out.println("    * " + article.getNumber() + " - " + article.getTitle() + " - " + numberFormatter.format(article.getActualPrice()));
 		}*/
+		
+		this.controller.reserva(cliente, nReserva, vuelo, nPersonas);
 	}
 }

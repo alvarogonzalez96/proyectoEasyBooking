@@ -28,4 +28,7 @@ public class Vuelo
         this.aeropuerto = aeropuerto;
         this.aerolinea = aerolinea;
     }
+    
+    
+    
 }

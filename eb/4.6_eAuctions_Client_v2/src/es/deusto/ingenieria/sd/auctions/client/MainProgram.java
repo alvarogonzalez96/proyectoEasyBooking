@@ -16,8 +16,8 @@ public class MainProgram {
 		RegistryDialog registryDialog = new RegistryDialog(sesionController);			
 		loginDialog.login();
 		
-		ReservaController reservaController = new BidController(serviceLocator);			
-		ReservaWindow reservaWindow = new BidWindow(reservaController);
+		ReservaController reservaController = new ReservaController(serviceLocator);			
+		ReservaWindow reservaWindow = new ReservaWindow(reservaController);
 		reservaWindow.busquedaWeb();
 		reservaWindow.reserva();		
 	}

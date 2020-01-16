@@ -2,31 +2,25 @@ package es.deusto.ingenieria.sd.auctions.server.services;
 
 import java.util.List;
 
-import es.deusto.ingenieria.sd.auctions.server.data.dto.ArticleAssembler;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.ArticleDTO;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.CategoryAssembler;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.CategoryDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.VueloAssembler;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.VueloDTO;
 import es.deusto.ingenieria.sd.auctions.server.db.DBManager;
 
-public class EntityDataService {
+public class BusquedaService {
 	
-	private static EntityDataService instance;
+	private static BusquedaService instance;
 
-	private EntityDataService() { }
+	private BusquedaService() { }
 	
-	public static EntityDataService getInstance() {
+	public static BusquedaService getInstance() {
 		if (instance == null) {
-			instance = new EntityDataService();
+			instance = new BusquedaService();
 		}
 
 		return instance;
 	}
 
-	public List<CategoryDTO> getCategories() {
-		return CategoryAssembler.getInstance().entityToDTO(DBManager.getInstance().getCategories());
-	}
-
-	public List<ArticleDTO> getArticles(String category) {
-		return ArticleAssembler.getInstance().entityToDTO(DBManager.getInstance().getArticles(category));
+	public List<VueloDTO> getVuelos() {
+		return VueloAssembler.getInstance().entityToDTO(DBManager.getInstance().getVueloss());
 	}
 }

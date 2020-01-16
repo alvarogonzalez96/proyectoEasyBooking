@@ -7,18 +7,32 @@ import javax.jdo.annotations.PrimaryKey;
 public class Aeropuerto
 {
     @PrimaryKey
-    long id_aeropuerto;
+    String id_aeropuerto;
     String nombre = null;
     String provincia = null;
-    String attribute = null; //Attribute es String?
 
     
 
-    public Aeropuerto(String nombre, String provincia, String attribute)
+    public Aeropuerto(String nombre, String provincia)
     {
         this.nombre = nombre;
         this.provincia = provincia;
-        this.attribute = attribute;
         
+    }
+    
+    public String getNombre() {
+    	return nombre;
+    }
+    
+    public void setNombre(String nombre) {
+    	this.price = price;
+    }
+    
+    public String getProvincia() {
+    	return provincia;
+    }
+    
+    public void setProvincia(String provincia) {
+    	this.provincia = provincia;
     }
 }

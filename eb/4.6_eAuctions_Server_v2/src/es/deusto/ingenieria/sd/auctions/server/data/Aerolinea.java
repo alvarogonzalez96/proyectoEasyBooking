@@ -6,7 +6,7 @@ import javax.jdo.annotations.PrimaryKey;
 public class Aerolinea
 {
     @PrimaryKey
-    long id;
+    String id;
     String nombre = null;
 
     
@@ -15,5 +15,13 @@ public class Aerolinea
     {
         this.nombre = nombre;
         
+    }
+    
+    public String getNombre() {
+    	return nombre;
+    }
+    
+    public void setNombre(double nombre) {
+    	this.nombre = nombre;
     }
 }

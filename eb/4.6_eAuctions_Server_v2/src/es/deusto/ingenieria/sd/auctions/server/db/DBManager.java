@@ -92,7 +92,7 @@ public class DBManager {
 	public void store(Cliente cliente) {
 		DBManager.getInstance().storeObjectInDB(cliente);	
 	}
-	
+	/*
 	public void store(Aerolinea aerolinea) {
 		DBManager.getInstance().storeObjectInDB(aerolinea);	
 	}
@@ -100,15 +100,16 @@ public class DBManager {
 	public void store(Aeropuerto aeropuerto) {
 		DBManager.getInstance().storeObjectInDB(aeropuerto);	
 	}
-
+*/
 	public void store(Reserva reserva) {
 		DBManager.getInstance().storeObjectInDB(reserva);	
 	}
-
+/*
 	public void store(Vuelo vuelo) {
 		DBManager.getInstance().storeObjectInDB(vuelo);
 	}
-	
+	*/
+	/*
 	public List<Vuelo> getVuelos() {
 		List<Vuelo> vuelos = new ArrayList<>();		
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -138,7 +139,7 @@ public class DBManager {
 		}
 
 		return vuelos;		
-	}
+	}*/
 
 /*	public Article getArticle(long number) {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -267,10 +268,11 @@ public class DBManager {
 		cliente0.setEmail("kike@gmail.com");
 		cliente0.setPassword("kike");
 						
-		Cliente user1 = new User();
+		Cliente cliente1 = new Cliente();
 		cliente1.setEmail("pablo@gmail.com");
-		cliente1.setPassword("pablo");		
-						
+		cliente1.setPassword("pablo");
+		
+		/*				
 		Category iPadCat = new Category();
 		iPadCat.setName("iPad");
 		
@@ -403,6 +405,8 @@ public class DBManager {
 		motorola.setCategory(cPhone);
 		user2.addArticle(motorola);
 		motorola.setOwner(user2);
+		
+		*/
 		
 		try {
 			//Store users in DB

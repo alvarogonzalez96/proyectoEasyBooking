@@ -1,6 +1,7 @@
 //CLIENTE
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
+import java.util.ArrayList;
 
 @PersistenceCapable
 public class Cliente extends Aeropuerto
@@ -11,14 +12,18 @@ public class Cliente extends Aeropuerto
     int age = 0;
     int telefono = 0;
     String tarjeta_credito = null;
-    Long id_aeropuerto;
+    ArrayList<int> reservas;
     
-    public Cliente(String name, int age, int telefono, String tarjeta_credito)
+    public Cliente(String name, int age, int telefono, String tarjeta_credito, ArrayList<int> reservas)
     {
         this.name = name;
         this.age = age;
         this.telefono = telefono;
         this.tarjeta_credito = tarjeta_credito;
         
+    }
+    
+    public void addReserva(int idReserva) {
+    	reservas.add(idReserva);
     }
 }

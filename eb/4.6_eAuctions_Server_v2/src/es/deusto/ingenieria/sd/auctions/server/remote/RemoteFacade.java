@@ -51,5 +51,10 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		} else {
 			return false;
 		}
-	}	
+	}
+	
+	public List<ReservaDTO> getReservas(String email){
+		System.out.println(" * RemoteFaçade getReservas");
+		return BusquedaService.getInstance().getReservas(email);
+	}
 }

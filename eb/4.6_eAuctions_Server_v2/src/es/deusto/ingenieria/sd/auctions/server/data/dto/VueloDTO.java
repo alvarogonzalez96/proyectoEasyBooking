@@ -10,6 +10,8 @@ public class VueloDTO implements Serializable {
 	private double precio_business;
 	private String hora_salida;
 	private String hora_llegada;
+	private Aerolinea aerolinea;
+	private Aeropuerto aeropuerto;
 	
 	public String getidVuelo() {
 		return idVuelo;
@@ -50,4 +52,21 @@ public class VueloDTO implements Serializable {
 	public void setHoraSalida(String horaSalida){
 		this.horaSalida = horaSalida;
 	}
+	
+	public Aerolinea getAerolinea() {
+		return aerolinea;
+	}
+	
+	public void setAerolinea(Aerolinea aerolinea) {
+		this.aerolinea = aerolinea;
+	}
+	
+	public Aeropuerto getAeropuerto() {
+		return aeropuerto;
+	}
+	
+	public void setAeropuerto(Aeropuerto aeropuerto) {
+		this.aerouperto = aeropuerto;
+	} 
+	
 }

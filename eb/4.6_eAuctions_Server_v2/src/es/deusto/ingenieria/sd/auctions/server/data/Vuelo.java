@@ -13,9 +13,11 @@ public class Vuelo
     Date horaEntrada = null;
     double price = 0.0;
     double precioBusiness = 0.0;
+    Aeropuerto aeropuerto = null;
+    Aerolinea aerolinea = null;
     
 
-    public Vuelo(String origen, String destino, Date horaSalida, Date horaEntrada, double precio, double precioBusiness)
+    public Vuelo(String origen, String destino, Date horaSalida, Date horaEntrada, double precio, double precioBusiness, Aeropuerto aeropuerto, Aerolinea aerolinea)
     {
         this.origen = origen;
         this.destino = destino;
@@ -23,6 +25,7 @@ public class Vuelo
         this.horaEntrada = horaEntrada;
         this.price = price;
         this.precioBusiness = precioBusiness;
-        
+        this.aeropuerto = aeropuerto;
+        this.aerolinea = aerolinea;
     }
 }

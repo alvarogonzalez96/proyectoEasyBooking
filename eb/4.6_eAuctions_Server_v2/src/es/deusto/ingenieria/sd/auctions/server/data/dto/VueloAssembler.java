@@ -23,6 +23,8 @@ public class VueloAssembler {
 		dto.setPrecioBusiness(vuelo.getPrecioBusiness());
 		dto.setHoraSalida(vuelo.getHoraSalida());
 		dto.setHoraLlegada(vuelo.getHoraLlegada());
+		dto.setAeropuerto(vuelo.getAeropuerto);
+		dto.setAerolinea(vuelo.setAerolinea);
 		
 		return dto;
 	}

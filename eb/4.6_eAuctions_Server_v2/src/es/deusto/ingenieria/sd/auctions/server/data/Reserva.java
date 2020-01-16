@@ -7,13 +7,14 @@ public class Reserva
 {
     @PrimaryKey
     long id_Reserva;
-    String descripcion = null;
+    Vuelo vuelo = null;
+    int nPersonas = 0;
 
     
 
-    public Reserva(String descripcion)
+    public Reserva(Vuelo vuelo, int nPersonas)
     {
-        this.descripcion = descripcion;
-        
+        this.vuelo = vuelo;
+        this.nPersonas = nPersonas;
     }
 }

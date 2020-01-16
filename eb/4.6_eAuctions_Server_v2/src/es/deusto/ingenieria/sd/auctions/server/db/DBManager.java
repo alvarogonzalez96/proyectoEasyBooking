@@ -108,24 +108,27 @@ public class DBManager {
 	public void store(Vuelo vuelo) {
 		DBManager.getInstance().storeObjectInDB(vuelo);
 	}
-
-	public Category getCategory(String categoryName) {		
+	
+	public List<Vuelo> getVuelos() {
+		List<Vuelo> vuelos = new ArrayList<>();		
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
 		Transaction tx = pm.currentTransaction();
-		Category category = null; 
 
 		try {
-			System.out.println("  * Querying a Category by name: " + categoryName);
+			System.out.println("  * Retrieving all the Vuelos");
+
 			tx.begin();
 			
-			Query<?> query = pm.newQuery("SELECT FROM " + Category.class.getName() + " WHERE name == '" + categoryName + "'");
-			query.setUnique(true);
-			category = (Category) query.execute();
-			
+			Extent<Vuelo> extent = pm.getExtent(Vuelo.class, true);
+
+			for (Vuelo vuelo : extent) {
+				vuelos.add(vuelo);
+			}
+
 			tx.commit();
 		} catch (Exception ex) {
-			System.out.println(" $ Error querying a Category: " + ex.getMessage());
+			System.out.println("  $ Error retrieving all the Vuelos: " + ex.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -134,41 +137,10 @@ public class DBManager {
 			pm.close();
 		}
 
-		return category;
+		return vuelos;		
 	}
 
-	public List<Category> getCategories() {
-		List<Category> categories = new ArrayList<>();		
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.getFetchPlan().setMaxFetchDepth(4);
-		Transaction tx = pm.currentTransaction();
-
-		try {
-			System.out.println("  * Retrieving all the Categories");
-
-			tx.begin();
-			
-			Extent<Category> extent = pm.getExtent(Category.class, true);
-
-			for (Category category : extent) {
-				categories.add(category);
-			}
-
-			tx.commit();
-		} catch (Exception ex) {
-			System.out.println("  $ Error retrieving all the Categories: " + ex.getMessage());
-		} finally {
-			if (tx != null && tx.isActive()) {
-				tx.rollback();
-			}
-
-			pm.close();
-		}
-
-		return categories;		
-	}
-
-	public Article getArticle(long number) {
+/*	public Article getArticle(long number) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
 		Transaction tx = pm.currentTransaction();
@@ -195,29 +167,29 @@ public class DBManager {
 
 		return article;
 	}
-
-	public ArrayList<Article> getArticles(String categoryName) {
+*/
+	public ArrayList<Reserva> getReservas(String email) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
 		Transaction tx = pm.currentTransaction();
-		ArrayList<Article> articles = new ArrayList<>();
+		ArrayList<Reserva> reservas = new ArrayList<>();
 
 		try {
-			System.out.println("  * Querying products of a Category: " + categoryName);
+			System.out.println("  * Querying products of a Cliente: " + email);
 			tx.begin();
 			
-			Query<?> query = pm.newQuery("SELECT FROM " + Category.class.getName() + " WHERE name == '" + categoryName + "'");
+			Query<?> query = pm.newQuery("SELECT FROM " + Cliente.class.getEmail() + " WHERE name == '" + email + "'");
 			query.setUnique(true);
-			Category category = (Category) query.execute();
+			Cliente cliente = (Cliente) query.execute();
 			
 			tx.commit();
 			
-			if (category != null) {				
-				HashSet<Article> articlesSet = (HashSet<Article>)category.getArticles();				
-				articles = new ArrayList<Article>(articlesSet);
+			if (cliente != null) {				
+				HashSet<Reserva> reservasSet = (HashSet<Reserva>)cliente.getReservas();				
+				reservas = new ArrayList<Reserva>(reservasSet);
 			}			
 		} catch (Exception ex) {
-			System.out.println("  $ Error querying Articles of a Category: " + ex.getMessage());
+			System.out.println("  $ Error querying Reservas of a Cliente: " + ex.getMessage());
 		} finally {
 			if (tx != null && tx.isActive()) {
 				tx.rollback();
@@ -226,9 +198,9 @@ public class DBManager {
 			pm.close();
 		}
 
-		return articles;
+		return reservas;
 	}
-
+/*
 	public User getUser(String email) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
@@ -256,7 +228,8 @@ public class DBManager {
 
 		return user;
 	}
-	
+	*/
+	/*
 	public List<User> getUsers() {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.getFetchPlan().setMaxFetchDepth(4);
@@ -286,24 +259,17 @@ public class DBManager {
 
 		return users;
 	}
-	
+	*/
 	private void initializeData() {
 		System.out.println(" * Initializing data base");
 		//Create Sample data
-		User user0 = new User();
-		user0.setEmail("thomas.e2001@gmail.com");
-		user0.setNickname("Thomas");
-		user0.setPassword("@#12345%Asr-8!");
+		Cliente cliente0 = new Cliente();
+		cliente0.setEmail("kike@gmail.com");
+		cliente0.setPassword("kike");
 						
-		User user1 = new User();
-		user1.setEmail("sample@gmail.com");
-		user1.setNickname("buyer33");
-		user1.setPassword("12345");		
-		
-		User user2 = new User();
-		user2.setEmail("troyaikman08@hotmail.com");
-		user2.setNickname("troyaikman08");
-		user2.setPassword("876$·%$ffs_");
+		Cliente user1 = new User();
+		cliente1.setEmail("pablo@gmail.com");
+		cliente1.setPassword("pablo");		
 						
 		Category iPadCat = new Category();
 		iPadCat.setName("iPad");

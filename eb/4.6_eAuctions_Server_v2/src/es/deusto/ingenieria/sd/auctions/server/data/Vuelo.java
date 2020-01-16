@@ -6,7 +6,7 @@ import javax.jdo.annotations.PrimaryKey;
 public class Vuelo 
 {
     @PrimaryKey
-    long id_vuelo;
+    String id_vuelo;
     String origen = null;
     String destino = null;
     Date horaSalida = null;

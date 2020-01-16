@@ -1,6 +1,6 @@
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.ReservaController;
+import es.deusto.ingenieria.sd.auctions.client.controller.SesionController;
 
 public class RegistryDialog {
 	

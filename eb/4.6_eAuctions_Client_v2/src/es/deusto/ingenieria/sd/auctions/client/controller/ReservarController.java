@@ -4,8 +4,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.ArticleDTO;
-import es.deusto.ingenieria.sd.auctions.server.data.dto.CategoryDTO;
+import es.deusto.ingenieria.sd.auctions.server.data.dto.VueloDTO;
+//import es.deusto.ingenieria.sd.auctions.server.data.dto.CategoryDTO;
 
 public class ReservarController {
 	public ServiceLocator serviceLocator;

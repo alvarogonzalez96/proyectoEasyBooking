@@ -4,15 +4,15 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.ReservaController;
+import es.deusto.ingenieria.sd.auctions.client.controller.ReservarController;
 //import es.deusto.ingenieria.sd.auctions.server.data.dto.ArticleDTO;
 import es.deusto.ingenieria.sd.auctions.server.data.dto.VueloDTO;
 
 public class ReservaWindow {
 	private static NumberFormat numberFormatter = NumberFormat.getCurrencyInstance(Locale.getDefault());
-	public ReservaController controller;
+	public ReservarController controller;
 	
-	public ReservaWindow(ReservaController controller) {
+	public ReservaWindow(ReservarController controller) {
 		this.controller = controller;
 	}
 

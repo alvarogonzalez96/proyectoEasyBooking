@@ -12,7 +12,7 @@ public class Cliente extends Aeropuerto
     int age = 0;
     int telefono = 0;
     String tarjeta_credito = null;
-    ArrayList<int> reservas;
+    ArrayList<String> reservas;
     
     public Cliente(String name, int age, int telefono, String tarjeta_credito, ArrayList<int> reservas)
     {
@@ -23,7 +23,7 @@ public class Cliente extends Aeropuerto
         
     }
     
-    public void addReserva(int idReserva) {
+    public void addReserva(String idReserva) {
     	reservas.add(idReserva);
     }
 }

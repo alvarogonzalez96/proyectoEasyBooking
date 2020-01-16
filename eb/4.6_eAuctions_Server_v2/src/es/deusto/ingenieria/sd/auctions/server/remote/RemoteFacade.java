@@ -39,20 +39,15 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade {
 		return state != null;
 	}
 
-	public List<CategoryDTO> getCategories() {
-		System.out.println(" * RemoteFaçade getCategories");
-		return EntityDataService.getInstance().getCategories();
+	public List<VueloDTO> getVuelos() {
+		System.out.println(" * RemoteFaçade getVuelos");
+		return BusquedaService.getInstance().getVuelos();
 	}
 
-	public List<ArticleDTO> getArticles(String category) {
-		System.out.println(" * RemoteFaçade getArticles of a Category: " + category);
-		return EntityDataService.getInstance().getArticles(category);
-	}
-
-	public boolean makeBid(long article, float bid) {
+	public boolean reserva(Cliente cliente, String idReserva) {
 		if (state != null) {
-			System.out.println(" * RemoteFaçade makeBid article : " + article + " / " + bid);
-			return BidService.getInstance().makeBid(state, article, bid);
+			System.out.println(" * RemoteFaçade reserva  : " + idReserva);
+			return ReservaService.getInstance().reserva(cliente, idReserva);
 		} else {
 			return false;
 		}
